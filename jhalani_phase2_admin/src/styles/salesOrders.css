@@ -1,0 +1,1707 @@
+/* ============================================================
+   SALES ORDERS PAGE
+============================================================ */
+
+.sales-orders-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #f6f7fb;
+  color: #1f2937;
+}
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.sales-orders-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.sales-orders-header h1 {
+  margin: 0 0 6px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.sales-orders-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.sales-order-primary-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 18px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.sales-order-primary-btn:hover {
+  background: #1d4ed8;
+}
+
+
+/* ============================================================
+   ALERTS
+============================================================ */
+
+.sales-order-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 15px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.sales-order-alert.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+.sales-order-alert.success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+}
+
+.sales-order-alert button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   MAIN CARD
+============================================================ */
+
+.sales-orders-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+
+/* ============================================================
+   TOOLBAR
+============================================================ */
+
+.sales-orders-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.sales-orders-toolbar input,
+.sales-orders-toolbar select {
+  height: 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  padding: 0 12px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.sales-orders-toolbar input {
+  width: 340px;
+}
+
+.sales-orders-toolbar select {
+  width: 180px;
+}
+
+.sales-orders-toolbar input:focus,
+.sales-orders-toolbar select:focus {
+  border-color: #2563eb;
+}
+
+.sales-order-refresh-btn {
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sales-order-refresh-btn:hover {
+  background: #f9fafb;
+}
+
+
+/* ============================================================
+   TABLE
+============================================================ */
+
+.sales-orders-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.sales-orders-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: collapse;
+}
+
+.sales-orders-table th {
+  padding: 13px 15px;
+  text-align: left;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sales-orders-table td {
+  padding: 14px 15px;
+  border-bottom: 1px solid #f0f1f3;
+  color: #374151;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.sales-orders-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.sales-order-empty {
+  padding: 40px !important;
+  text-align: center !important;
+  color: #9ca3af !important;
+}
+
+
+/* ============================================================
+   PARTY
+============================================================ */
+
+.sales-order-party {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sales-order-party strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.sales-order-party small {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+
+/* ============================================================
+   STATUS
+============================================================ */
+
+.sales-order-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 85px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sales-order-status.draft {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.sales-order-status.confirmed {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.sales-order-status.partially-dispatched {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.sales-order-status.dispatched {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.sales-order-status.cancelled {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+
+/* ============================================================
+   ACTIONS
+============================================================ */
+
+.sales-order-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.sales-order-view-btn,
+.sales-order-confirm-btn {
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sales-order-view-btn {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.sales-order-view-btn:hover {
+  background: #dbeafe;
+}
+
+.sales-order-confirm-btn {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.sales-order-confirm-btn:hover {
+  background: #bbf7d0;
+}
+
+
+/* ============================================================
+   PAGINATION
+============================================================ */
+
+.sales-orders-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 14px 16px;
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.sales-orders-pagination button {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 7px 12px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.sales-orders-pagination button:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+.sales-orders-pagination button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   MODAL
+============================================================ */
+
+.sales-order-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.55);
+  box-sizing: border-box;
+}
+
+.sales-order-modal,
+.sales-order-view-modal {
+  width: 100%;
+  max-width: 1200px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+}
+
+.sales-order-view-modal {
+  max-width: 1100px;
+}
+
+
+/* ============================================================
+   MODAL HEADER
+============================================================ */
+
+.sales-order-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 22px;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #ffffff;
+}
+
+.sales-order-modal-header h2 {
+  margin: 0 0 5px;
+  font-size: 20px;
+  color: #111827;
+}
+
+.sales-order-modal-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.sales-order-close-btn {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 6px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sales-order-close-btn:hover {
+  background: #e5e7eb;
+}
+
+
+/* ============================================================
+   FORM
+============================================================ */
+
+.sales-order-form {
+  padding: 22px;
+}
+
+.sales-order-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.sales-order-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.sales-order-field label {
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sales-order-field label span {
+  margin-left: 3px;
+  color: #dc2626;
+}
+
+.sales-order-field input,
+.sales-order-field select,
+.sales-order-field textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  padding: 10px 11px;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #374151;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.sales-order-field input,
+.sales-order-field select {
+  height: 40px;
+}
+
+.sales-order-field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.sales-order-field input:focus,
+.sales-order-field select:focus,
+.sales-order-field textarea:focus {
+  border-color: #2563eb;
+}
+
+.sales-order-field input:disabled,
+.sales-order-field select:disabled,
+.sales-order-field textarea:disabled {
+  background: #f9fafb;
+  cursor: not-allowed;
+}
+
+.sales-order-full-width {
+  grid-column: 1 / -1;
+}
+
+
+/* ============================================================
+   ITEMS SECTION
+============================================================ */
+
+.sales-order-items-section {
+  margin-top: 25px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.sales-order-items-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sales-order-items-header h3 {
+  margin: 0 0 3px;
+  font-size: 15px;
+  color: #111827;
+}
+
+.sales-order-items-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.sales-order-add-item-btn {
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 13px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sales-order-add-item-btn:hover {
+  background: #1d4ed8;
+}
+
+
+/* ============================================================
+   ITEMS TABLE
+============================================================ */
+
+.sales-order-items-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.sales-order-items-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+.sales-order-items-table th {
+  padding: 11px 12px;
+  text-align: left;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sales-order-items-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f1f3;
+  vertical-align: middle;
+}
+
+.sales-order-items-table input,
+.sales-order-items-table select {
+  width: 100%;
+  height: 38px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0 9px;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #374151;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.sales-order-items-table input:focus,
+.sales-order-items-table select:focus {
+  border-color: #2563eb;
+}
+
+.sales-order-items-table input:disabled,
+.sales-order-items-table select:disabled {
+  background: #f9fafb;
+}
+
+.sales-order-item-amount {
+  min-width: 100px;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.sales-order-remove-item-btn {
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 9px;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sales-order-remove-item-btn:hover:not(:disabled) {
+  background: #fee2e2;
+}
+
+.sales-order-remove-item-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   LOADING
+============================================================ */
+
+.sales-order-loading {
+  padding: 30px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+
+/* ============================================================
+   REMARKS
+============================================================ */
+
+.sales-order-remarks {
+  margin-top: 20px;
+}
+
+
+/* ============================================================
+   TOTAL
+============================================================ */
+
+.sales-order-total {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: 1px;
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #e5e7eb;
+}
+
+.sales-order-total > div {
+  min-width: 180px;
+  padding: 13px 16px;
+  background: #f9fafb;
+}
+
+.sales-order-total span {
+  display: block;
+  margin-bottom: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.sales-order-total strong {
+  color: #111827;
+  font-size: 16px;
+}
+
+
+/* ============================================================
+   FORM ACTIONS
+============================================================ */
+
+.sales-order-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.sales-order-cancel-btn,
+.sales-order-save-btn {
+  min-width: 105px;
+  border-radius: 7px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sales-order-cancel-btn {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
+}
+
+.sales-order-cancel-btn:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+.sales-order-save-btn {
+  border: 0;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.sales-order-save-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.sales-order-cancel-btn:disabled,
+.sales-order-save-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   VIEW MODAL
+============================================================ */
+
+.sales-order-view-content {
+  padding: 22px;
+}
+
+.sales-order-view-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.sales-order-view-grid > div {
+  min-height: 60px;
+  padding: 13px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.sales-order-view-grid span {
+  display: block;
+  margin-bottom: 5px;
+  color: #6b7280;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.sales-order-view-grid strong {
+  color: #111827;
+  font-size: 14px;
+}
+
+.sales-order-view-address {
+  margin-bottom: 22px;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.sales-order-view-address span {
+  display: block;
+  margin-bottom: 6px;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sales-order-view-address p {
+  margin: 0;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.sales-order-view-items h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #111827;
+}
+
+.sales-order-view-items
+  .sales-order-items-table {
+  min-width: 800px;
+}
+
+.sales-order-view-items
+  .sales-order-items-table
+  td
+  small {
+  display: block;
+  margin-top: 3px;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.sales-order-view-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #e5e7eb;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 900px) {
+  .sales-orders-page {
+    padding: 16px;
+  }
+
+  .sales-orders-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sales-order-primary-btn {
+    width: 100%;
+  }
+
+  .sales-orders-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .sales-orders-toolbar input {
+    width: 100%;
+  }
+
+  .sales-orders-toolbar select {
+    flex: 1;
+    min-width: 160px;
+  }
+
+  .sales-order-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sales-order-full-width {
+    grid-column: auto;
+  }
+
+  .sales-order-view-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 600px) {
+  .sales-orders-page {
+    padding: 10px;
+  }
+
+  .sales-orders-header h1 {
+    font-size: 22px;
+  }
+
+  .sales-orders-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .sales-orders-toolbar select,
+  .sales-order-refresh-btn {
+    width: 100%;
+  }
+
+  .sales-order-modal-overlay {
+    padding: 0;
+  }
+
+  .sales-order-modal,
+  .sales-order-view-modal {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .sales-order-form {
+    padding: 15px;
+  }
+
+  .sales-order-modal-header {
+    padding: 15px;
+  }
+
+  .sales-order-items-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sales-order-add-item-btn {
+    width: 100%;
+  }
+
+  .sales-order-total {
+    flex-direction: column;
+    background: transparent;
+    border: 0;
+    gap: 8px;
+  }
+
+  .sales-order-total > div {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+  }
+
+  .sales-order-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .sales-order-cancel-btn,
+  .sales-order-save-btn {
+    width: 100%;
+  }
+
+  .sales-order-view-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sales-orders-pagination {
+    justify-content: center;
+  }
+}
+/* =========================================
+   SALES ORDER FORM
+========================================= */
+
+.sales-order-modal-body {
+  font-family: inherit;
+  color: #1f2937;
+}
+
+/* Section */
+
+.sales-order-modal-body .form-section {
+  margin-bottom: 28px;
+}
+
+.sales-order-modal-body .form-section:last-child {
+  margin-bottom: 0;
+}
+
+.sales-order-modal-body .form-section-title {
+  margin: 0 0 16px;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  color: #1f2937;
+}
+
+.sales-order-modal-body .form-section-subtitle {
+  margin: -8px 0 18px;
+
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Grid */
+
+.sales-order-modal-body .form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px 20px;
+}
+
+/* Full width field */
+
+.sales-order-modal-body .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Form group */
+
+.sales-order-modal-body .form-group {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+/* Labels */
+
+.sales-order-modal-body .form-group label {
+  margin-bottom: 7px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #374151;
+}
+
+/* Inputs */
+
+.sales-order-modal-body input,
+.sales-order-modal-body select,
+.sales-order-modal-body textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 10px 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: #fff;
+
+  color: #111827;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.sales-order-modal-body input:focus,
+.sales-order-modal-body select:focus,
+.sales-order-modal-body textarea:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.sales-order-modal-body input::placeholder,
+.sales-order-modal-body textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Textarea */
+
+.sales-order-modal-body textarea {
+  min-height: 90px;
+
+  resize: vertical;
+}
+
+/* Required */
+
+.sales-order-modal-body .required {
+  color: #dc2626;
+}
+
+/* =========================================
+   ORDER ITEMS
+========================================= */
+
+.sales-order-modal-body .order-items-section {
+  margin-top: 28px;
+}
+
+.sales-order-modal-body .order-items-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  margin-bottom: 14px;
+}
+
+.sales-order-modal-body .order-items-header h3 {
+  margin: 0;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.sales-order-modal-body .order-items-header p {
+  margin: 4px 0 0;
+
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Add item */
+
+.sales-order-modal-body .add-item-button {
+  padding: 8px 14px;
+
+  border: 1px solid #2563eb;
+  border-radius: 7px;
+
+  background: #2563eb;
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.sales-order-modal-body .add-item-button:hover {
+  background: #1d4ed8;
+}
+
+/* Table wrapper */
+
+.sales-order-modal-body .order-items-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+/* Table */
+
+.sales-order-modal-body .order-items-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 850px;
+}
+
+.sales-order-modal-body .order-items-table th {
+  padding: 11px 12px;
+
+  background: #f9fafb;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  color: #374151;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-align: left;
+  white-space: nowrap;
+}
+
+.sales-order-modal-body .order-items-table td {
+  padding: 10px 12px;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  vertical-align: middle;
+}
+
+.sales-order-modal-body .order-items-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.sales-order-modal-body .order-items-table input,
+.sales-order-modal-body .order-items-table select {
+  min-width: 100px;
+}
+
+/* Remove item */
+
+.sales-order-modal-body .remove-item-button {
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+
+  background: #fff;
+
+  color: #dc2626;
+
+  cursor: pointer;
+}
+
+.sales-order-modal-body .remove-item-button:hover {
+  background: #fef2f2;
+}
+
+/* =========================================
+   TOTALS
+========================================= */
+
+.sales-order-modal-body .order-totals {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 18px;
+}
+
+.sales-order-modal-body .order-totals-box {
+  width: 300px;
+
+  padding: 16px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  background: #f9fafb;
+}
+
+.sales-order-modal-body .total-row {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 6px 0;
+
+  font-size: 14px;
+}
+
+.sales-order-modal-body .total-row.total-final {
+  margin-top: 8px;
+  padding-top: 12px;
+
+  border-top: 1px solid #d1d5db;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .sales-order-modal-body .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sales-order-modal-body .form-group.full-width {
+    grid-column: auto;
+  }
+
+  .sales-order-modal-body .order-items-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sales-order-modal-body .add-item-button {
+    width: 100%;
+  }
+
+  .sales-order-modal-body .order-totals {
+    justify-content: stretch;
+  }
+
+  .sales-order-modal-body .order-totals-box {
+    width: 100%;
+  }
+}
+
+/* salesOrderModal.css */
+
+.sales-order-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.sales-order-modal {
+  width: min(1200px, 96vw);
+  max-height: 94vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #fff;
+  border-radius: 14px;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.18),
+    0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+
+.sales-order-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 20px 24px;
+
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sales-order-modal-header h2 {
+  margin: 0;
+
+  font-size: 21px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.sales-order-modal-header p {
+  margin: 6px 0 0;
+
+  font-size: 13px;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+/* Close button */
+
+.sales-order-modal-close {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #6b7280;
+
+  font-size: 27px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.sales-order-modal-close:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.sales-order-modal-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form */
+
+.sales-order-modal-form {
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Body */
+
+.sales-order-modal-body {
+  min-height: 0;
+
+  max-height: calc(94vh - 150px);
+
+  overflow-y: auto;
+
+  padding: 24px;
+}
+
+.sales-order-modal-body::-webkit-scrollbar {
+  width: 7px;
+}
+
+.sales-order-modal-body::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
+.sales-order-modal-body::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+.sales-order-modal-body::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Error */
+
+.sales-order-modal .modal-error {
+  margin-top: 16px;
+  padding: 11px 14px;
+
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+
+  background: #fef2f2;
+  color: #b91c1c;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Footer */
+
+.sales-order-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding: 16px 24px;
+
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Buttons */
+
+.sales-order-modal-actions button {
+  min-width: 110px;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.sales-order-modal-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Cancel */
+
+.sales-order-modal-actions .secondary-button {
+  border: 1px solid #d1d5db;
+
+  background: #fff;
+  color: #374151;
+}
+
+.sales-order-modal-actions .secondary-button:hover:not(:disabled) {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+/* Save */
+
+.sales-order-modal-actions .primary-button {
+  border: 1px solid #2563eb;
+
+  background: #2563eb;
+  color: #fff;
+}
+
+.sales-order-modal-actions .primary-button:hover:not(:disabled) {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* Form content */
+
+.sales-order-modal .common-form {
+  width: 100%;
+}
+
+.sales-order-modal .form-grid {
+  width: 100%;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .sales-order-modal-overlay {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .sales-order-modal {
+    width: 100%;
+    max-height: 96vh;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
+  .sales-order-modal-header {
+    padding: 16px;
+  }
+
+  .sales-order-modal-header h2 {
+    font-size: 18px;
+  }
+
+  .sales-order-modal-body {
+    padding: 16px;
+    max-height: calc(96vh - 135px);
+  }
+
+  .sales-order-modal-actions {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sales-order-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .sales-order-modal-actions button {
+    width: 100%;
+  }
+}
+/* =========================================================
+   ORDER CREATED SUCCESS MODAL
+========================================================= */
+
+.order-success-content {
+  text-align: center;
+  padding: 10px 10px 20px;
+}
+
+.order-success-icon {
+  width: 60px;
+  height: 60px;
+  margin: 5px auto 16px;
+  border-radius: 50%;
+  background: #e8f7ee;
+  color: #16834b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.order-success-content h3 {
+  margin: 0 0 7px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.order-success-content > p {
+  margin: 0 0 22px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.order-success-details {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  margin-bottom: 22px;
+}
+
+.order-success-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.order-success-row:last-child {
+  border-bottom: none;
+}
+
+.order-success-row span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.order-success-row strong {
+  color: #111827;
+  font-size: 14px;
+  text-align: right;
+}
+
+.order-success-row.total {
+  background: #f9fafb;
+}
+
+.order-success-row.total strong {
+  font-size: 17px;
+}
+
+.order-success-button {
+  min-width: 120px;
+}
+.order-confirm-content {
+  padding: 10px 10px 20px;
+  text-align: center;
+}
+
+.order-confirm-icon {
+  width: 58px;
+  height: 58px;
+  margin: 5px auto 16px;
+  border-radius: 50%;
+  background: #fff7ed;
+  color: #d97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.order-confirm-content h3 {
+  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.order-confirm-content > p {
+  margin: 0 0 20px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.order-confirm-details {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.order-confirm-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.order-confirm-row:last-child {
+  border-bottom: none;
+}
+
+.order-confirm-row span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.order-confirm-row strong {
+  color: #111827;
+  font-size: 14px;
+  text-align: right;
+}
+
+.order-confirm-warning {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fff7ed;
+  color: #9a3412 !important;
+  font-size: 13px !important;
+  margin-bottom: 0 !important;
+}

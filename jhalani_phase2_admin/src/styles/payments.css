@@ -1,0 +1,223 @@
+.payments-page {
+  padding: 24px;
+}
+
+.payments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.payments-header h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.payments-header p {
+  margin: 6px 0 0;
+  color: #777;
+}
+
+.payment-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.summary-card span {
+  display: block;
+  color: #777;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.summary-card strong {
+  font-size: 22px;
+}
+
+.credit-text {
+  color: #16803c;
+}
+
+.debit-text {
+  color: #c0392b;
+}
+
+.accounts-section {
+  margin-bottom: 24px;
+}
+
+.section-heading {
+  margin-bottom: 14px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.section-heading p {
+  margin: 4px 0;
+  color: #777;
+  font-size: 13px;
+}
+
+.account-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.account-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.account-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.account-card-top strong {
+  display: block;
+  font-size: 16px;
+}
+
+.account-card-top span:not(.status) {
+  display: block;
+  margin-top: 4px;
+  color: #888;
+  font-size: 12px;
+}
+
+.account-balance {
+  margin: 20px 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.account-details {
+  color: #777;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.table-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.table-toolbar input,
+.table-toolbar select {
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #fff;
+}
+
+.table-toolbar input {
+  flex: 1;
+}
+
+.transaction-type {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.transaction-type.credit {
+  background: #e8f7ee;
+  color: #16803c;
+}
+
+.transaction-type.debit {
+  background: #fdecec;
+  color: #c0392b;
+}
+
+.transaction-type.transfer {
+  background: #eef2ff;
+  color: #4056a1;
+}
+
+.transaction-checkbox {
+  margin: 8px 0 16px;
+}
+
+.transaction-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.transaction-checkbox input {
+  width: 16px;
+  height: 16px;
+}
+
+.empty-card {
+  background: #fff;
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+  padding: 25px;
+  color: #777;
+}
+
+.muted {
+  color: #999;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.action-button.danger {
+  color: #c0392b;
+}
+
+@media (max-width: 1100px) {
+  .payment-summary,
+  .account-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .payments-page {
+    padding: 15px;
+  }
+
+  .payments-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .payment-summary,
+  .account-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .table-toolbar {
+    flex-direction: column;
+  }
+}

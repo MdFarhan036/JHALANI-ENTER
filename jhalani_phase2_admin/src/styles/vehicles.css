@@ -1,0 +1,368 @@
+/* ============================================================
+   VEHICLES PAGE
+   ============================================================ */
+
+.vehicles-page {
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.vehicles-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.vehicles-header h1 {
+  margin: 0 0 6px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.vehicles-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.vehicle-add-btn,
+.vehicle-empty-btn {
+  border: 0;
+  border-radius: 7px;
+  background: #2563eb;
+  color: #fff;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.vehicle-add-btn:hover,
+.vehicle-empty-btn:hover {
+  background: #1d4ed8;
+}
+
+.vehicle-add-btn:active,
+.vehicle-empty-btn:active {
+  transform: translateY(1px);
+}
+
+
+/* ============================================================
+   ALERTS
+   ============================================================ */
+
+.vehicle-alert {
+  padding: 12px 15px;
+  border-radius: 7px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.vehicle-alert.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+.vehicle-alert.success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+}
+
+
+/* ============================================================
+   FILTER
+   ============================================================ */
+
+.vehicles-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.vehicle-search {
+  flex: 1;
+}
+
+.vehicle-search input,
+.vehicle-status-filter select {
+  width: 100%;
+  height: 42px;
+  box-sizing: border-box;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #fff;
+  color: #111827;
+  padding: 0 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.vehicle-search input:focus,
+.vehicle-status-filter select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.vehicle-status-filter {
+  width: 180px;
+}
+
+
+/* ============================================================
+   CARD
+   ============================================================ */
+
+.vehicles-card {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+
+.vehicles-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.vehicles-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: collapse;
+}
+
+.vehicles-table thead {
+  background: #f8fafc;
+}
+
+.vehicles-table th {
+  padding: 13px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.vehicles-table td {
+  padding: 14px 15px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #374151;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.vehicles-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.vehicles-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+/* ============================================================
+   TRANSPORTER
+   ============================================================ */
+
+.transporter-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.transporter-cell span {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.transporter-cell small,
+.vehicle-subtext {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+
+/* ============================================================
+   VEHICLE TYPE
+   ============================================================ */
+
+.vehicle-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 5px;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   STATUS
+   ============================================================ */
+
+.vehicle-status {
+  min-width: 112px;
+  height: 32px;
+  padding: 0 28px 0 9px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.vehicle-status.active {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #047857;
+}
+
+.vehicle-status.inactive {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #4b5563;
+}
+
+.vehicle-status.maintenance {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #b45309;
+}
+
+
+/* ============================================================
+   ACTIONS
+   ============================================================ */
+
+.vehicle-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.vehicle-action {
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  background: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.vehicle-action.edit {
+  color: #2563eb;
+}
+
+.vehicle-action.edit:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.vehicle-action.delete {
+  color: #dc2626;
+}
+
+.vehicle-action.delete:hover {
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+
+
+/* ============================================================
+   LOADING
+   ============================================================ */
+
+.vehicles-loading {
+  padding: 55px 20px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+.vehicles-empty {
+  padding: 65px 20px;
+  text-align: center;
+}
+
+.vehicles-empty-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.vehicles-empty h3 {
+  margin: 0 0 7px;
+  color: #1f2937;
+  font-size: 17px;
+}
+
+.vehicles-empty p {
+  margin: 0 0 20px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .vehicles-page {
+    padding: 16px;
+  }
+
+  .vehicles-header {
+    flex-direction: column;
+  }
+
+  .vehicle-add-btn {
+    width: 100%;
+  }
+
+  .vehicles-filter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vehicle-status-filter {
+    width: 100%;
+  }
+}

@@ -1,0 +1,888 @@
+/* ============================================================
+   STOCK TRANSACTIONS PAGE
+============================================================ */
+
+.stock-transactions-page {
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #f6f7fb;
+  min-height: 100vh;
+  color: #1f2937;
+}
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.stock-transactions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.stock-transactions-header h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.stock-transactions-header p {
+  margin: 6px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+
+.st-refresh-btn,
+.st-view-btn,
+.st-clear-btn {
+  border: 0;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.st-refresh-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.st-refresh-btn:hover {
+  background: #1d4ed8;
+}
+
+.st-refresh-btn:active {
+  transform: translateY(1px);
+}
+
+.st-refresh-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.st-clear-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.st-clear-btn:hover {
+  background: #e5e7eb;
+}
+
+.st-clear-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.st-view-btn {
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.st-view-btn:hover {
+  background: #dbeafe;
+}
+
+
+/* ============================================================
+   SUMMARY
+============================================================ */
+
+.st-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.st-summary-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px;
+  min-height: 92px;
+  box-sizing: border-box;
+}
+
+.st-summary-card span {
+  display: block;
+  margin-bottom: 8px;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.st-summary-card strong {
+  display: block;
+  color: #111827;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.st-in-card {
+  border-left: 4px solid #16a34a;
+}
+
+.st-out-card {
+  border-left: 4px solid #dc2626;
+}
+
+
+/* ============================================================
+   FILTERS
+============================================================ */
+
+.st-filter-card {
+  display: grid;
+  grid-template-columns:
+    minmax(220px, 1.8fr)
+    minmax(160px, 1fr)
+    minmax(130px, 0.8fr)
+    minmax(140px, 1fr)
+    minmax(140px, 1fr)
+    auto;
+
+  align-items: end;
+  gap: 14px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.st-filter-card > div {
+  min-width: 0;
+}
+
+.st-filter-card label {
+  display: block;
+  margin-bottom: 7px;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.st-filter-card input,
+.st-filter-card select {
+  width: 100%;
+  height: 40px;
+  padding: 0 11px;
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 13px;
+  outline: none;
+}
+
+.st-filter-card input:focus,
+.st-filter-card select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* ============================================================
+   ERROR
+============================================================ */
+
+.st-error {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+
+  background: #fef2f2;
+  color: #b91c1c;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* ============================================================
+   TABLE CARD
+============================================================ */
+
+.st-table-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.st-table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.st-table-header h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.st-table-header span {
+  display: block;
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+
+/* ============================================================
+   TABLE
+============================================================ */
+
+.st-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.st-table {
+  width: 100%;
+  min-width: 1250px;
+  border-collapse: collapse;
+}
+
+.st-table thead th {
+  padding: 13px 14px;
+
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+
+  color: #6b7280;
+
+  font-size: 11px;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+.st-table tbody td {
+  padding: 14px;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  color: #374151;
+  font-size: 13px;
+
+  vertical-align: middle;
+}
+
+.st-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.st-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+/* ============================================================
+   TABLE CONTENT
+============================================================ */
+
+.st-id {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.st-date {
+  color: #4b5563;
+  white-space: nowrap;
+}
+
+.st-product,
+.st-variant {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.st-product strong,
+.st-variant strong {
+  color: #111827;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.st-product small,
+.st-variant small {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.st-quantity {
+  color: #111827;
+  white-space: nowrap;
+}
+
+.st-reference {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.st-reference span {
+  color: #374151;
+  font-weight: 600;
+}
+
+.st-reference small {
+  color: #9ca3af;
+}
+
+.st-remarks {
+  display: block;
+  max-width: 180px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #6b7280;
+}
+
+
+/* ============================================================
+   MOVEMENT BADGES
+============================================================ */
+
+.st-movement {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: #f3f4f6;
+  color: #6b7280;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.st-movement-in {
+  background: #ecfdf5;
+  color: #15803d;
+}
+
+.st-movement-out {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.st-type {
+  display: inline-flex;
+  padding: 5px 8px;
+
+  border-radius: 6px;
+
+  background: #f3f4f6;
+  color: #374151;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   LOADING / EMPTY
+============================================================ */
+
+.st-state,
+.st-empty {
+  padding: 60px 20px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.st-empty-icon {
+  margin-bottom: 10px;
+  font-size: 34px;
+}
+
+.st-empty h3 {
+  margin: 0 0 6px;
+  color: #374151;
+  font-size: 16px;
+}
+
+.st-empty p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+
+/* ============================================================
+   MODAL OVERLAY
+============================================================ */
+
+.st-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  background: rgba(15, 23, 42, 0.55);
+
+  overflow-y: auto;
+}
+
+
+/* ============================================================
+   MODAL
+============================================================ */
+
+.st-modal {
+  width: min(760px, 100%);
+
+  max-height: calc(100vh - 48px);
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.18);
+
+  animation: stModalIn 0.18s ease-out;
+}
+
+@keyframes stModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ============================================================
+   MODAL HEADER
+============================================================ */
+
+.st-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.st-modal-header h2 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.st-modal-header span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #6b7280;
+
+  font-size: 12px;
+}
+
+.st-modal-close {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: #f3f4f6;
+  color: #4b5563;
+
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.st-modal-close:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.st-modal-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   DETAIL AREA
+============================================================ */
+
+.st-details {
+  padding: 22px;
+}
+
+.st-detail-section {
+  margin-bottom: 22px;
+}
+
+.st-detail-section:last-child {
+  margin-bottom: 0;
+}
+
+.st-detail-section h3 {
+  margin: 0 0 14px;
+
+  color: #111827;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.st-detail-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.st-detail-grid > div {
+  min-width: 0;
+}
+
+.st-detail-grid > div > span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #6b7280;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.st-detail-grid > div > strong {
+  display: block;
+
+  color: #111827;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+
+/* ============================================================
+   ADD TRANSACTION FORM
+============================================================ */
+
+.st-modal form {
+  padding: 22px;
+}
+
+.st-modal form .st-detail-grid {
+  margin: 0;
+}
+
+.st-modal form .st-detail-grid > div > span {
+  margin-bottom: 7px;
+}
+
+.st-modal input,
+.st-modal select,
+.st-modal textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.st-modal input,
+.st-modal select {
+  height: 42px;
+  padding: 0 11px;
+}
+
+.st-modal textarea {
+  min-height: 90px;
+  padding: 10px 11px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.st-modal input:focus,
+.st-modal select:focus,
+.st-modal textarea:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.st-modal input:disabled,
+.st-modal select:disabled,
+.st-modal textarea:disabled {
+  background: #f9fafb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+
+/* ============================================================
+   MODAL ACTIONS
+============================================================ */
+
+.st-modal-actions {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 24px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+
+/* ============================================================
+   REMARKS
+============================================================ */
+
+.st-remarks-box {
+  min-height: 70px;
+
+  padding: 12px 14px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  background: #f9fafb;
+
+  color: #4b5563;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1200px) {
+  .st-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .st-filter-card {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 900px) {
+  .stock-transactions-page {
+    padding: 18px;
+  }
+
+  .stock-transactions-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .st-filter-card {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 640px) {
+  .stock-transactions-page {
+    padding: 12px;
+  }
+
+  .stock-transactions-header {
+    margin-bottom: 18px;
+  }
+
+  .stock-transactions-header h1 {
+    font-size: 22px;
+  }
+
+  .stock-transactions-header > div:last-child {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .stock-transactions-header
+    > div:last-child
+    button {
+    width: 100%;
+  }
+
+  .st-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .st-filter-card {
+    grid-template-columns: 1fr;
+  }
+
+  .st-filter-card .st-clear-btn {
+    width: 100%;
+  }
+
+  .st-modal-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .st-modal {
+    max-height: calc(100vh - 24px);
+    border-radius: 10px;
+  }
+
+  .st-modal-header {
+    padding: 16px;
+  }
+
+  .st-modal form {
+    padding: 16px;
+  }
+
+  .st-details {
+    padding: 16px;
+  }
+
+  .st-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .st-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .st-modal-actions button {
+    width: 100%;
+  }
+}
+
+
+/* ============================================================
+   SMALL SCREEN TABLE
+============================================================ */
+
+@media (max-width: 480px) {
+  .st-summary-card {
+    padding: 15px;
+  }
+
+  .st-summary-card strong {
+    font-size: 21px;
+  }
+
+  .st-table {
+    min-width: 1150px;
+  }
+}
